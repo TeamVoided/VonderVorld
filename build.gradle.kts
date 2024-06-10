@@ -13,11 +13,8 @@ plugins {
 
 group = property("maven_group")!!
 version = property("mod_version")!!
-base.archivesName.set(property("archives_base_name") as String)
-description = property("description") as String
 
-val modid: String by project
-val mod_name: String by project
+var modid: String = ""
 val modrinth_id: String? by project
 val curse_id: String? by project
 
@@ -28,12 +25,11 @@ repositories {
 }
 
 modSettings {
-    modId(modid)
-    modName(mod_name)
+    modid = modId()
 
-    entrypoint("main", "org.teamvoided.template.Template::commonInit")
-    entrypoint("client", "org.teamvoided.template.Template::clientInit")
-    entrypoint("fabric-datagen", "org.teamvoided.template.TemplateData")
+    entrypoint("main", "org.teamvoided.world_foundry.WorldFoundry::commonInit")
+    entrypoint("client", "org.teamvoided.world_foundry.WorldFoundry::clientInit")
+    entrypoint("fabric-datagen", "org.teamvoided.world_foundry.data.gen.WorldFoundryData")
     mixinFile("$modid.mixins.json")
 
 //    accessWidener("$modid.accesswidener")
@@ -41,8 +37,8 @@ modSettings {
 
 dependencies {
     modImplementation(fileTree("libs"))
-    modImplementation(libs.farrow)
-//    modImplementation(libs.modmenu)
+//    modImplementation(libs.farrow)
+    modImplementation(libs.modmenu)
 
 }
 
