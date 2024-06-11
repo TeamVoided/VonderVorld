@@ -31,8 +31,7 @@ modSettings {
     entrypoint("client", "org.teamvoided.world_foundry.WorldFoundry::clientInit")
     entrypoint("fabric-datagen", "org.teamvoided.world_foundry.data.gen.WorldFoundryData")
     mixinFile("$modid.mixins.json")
-
-//    accessWidener("$modid.accesswidener")
+    accessWidener("$modid.accesswidener")
 }
 
 dependencies {
