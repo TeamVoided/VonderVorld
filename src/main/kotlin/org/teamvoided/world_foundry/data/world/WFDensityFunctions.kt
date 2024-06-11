@@ -1,4 +1,4 @@
-package org.teamvoided.world_foundry.data.gen.world
+package org.teamvoided.world_foundry.data.world
 
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
@@ -8,9 +8,8 @@ import org.teamvoided.world_foundry.WorldFoundry.mc
 
 object WFDensityFunctions {
     val EXAMPLE = create("example")
-    val TEST = vanilla("test")
+    val AMPLIFIED_TRANSITION = create("example")
 
 
     fun create(id: String): RegistryKey<DensityFunction> = RegistryKey.of(RegistryKeys.DENSITY_FUNCTION, id(id))
-    fun vanilla(id: String): RegistryKey<DensityFunction> = RegistryKey.of(RegistryKeys.DENSITY_FUNCTION, mc(id))
 }

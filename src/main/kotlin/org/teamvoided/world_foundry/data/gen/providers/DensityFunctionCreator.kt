@@ -5,8 +5,8 @@ import net.minecraft.registry.RegistryKeys
 import net.minecraft.util.math.noise.InterpolatedNoiseSampler
 import net.minecraft.world.gen.DensityFunction
 import net.minecraft.world.gen.noise.NoiseRouterData
-import org.teamvoided.world_foundry.data.gen.world.WFDensityFunctions.EXAMPLE
-import org.teamvoided.world_foundry.data.gen.world.WFDensityFunctions.TEST
+import org.teamvoided.world_foundry.data.world.WFDensityFunctions.EXAMPLE
+import org.teamvoided.world_foundry.data.world.WFDensityFunctions.TEST
 
 object DensityFunctionCreator {
     fun bootstrap(c: BootstrapContext<DensityFunction>) {
