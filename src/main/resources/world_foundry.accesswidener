@@ -1,2 +1,4 @@
 accessWidener v2 named
 accessible class net/minecraft/registry/RegistrySetBuilder$BuildState
+accessible method net/minecraft/world/gen/noise/NoiseRouterData overworld (Lnet/minecraft/registry/HolderProvider;Lnet/minecraft/registry/HolderProvider;ZZ)Lnet/minecraft/world/gen/noise/NoiseRouter;
+accessible field net/minecraft/world/gen/chunk/GenerationShapeConfig SURFACE Lnet/minecraft/world/gen/chunk/GenerationShapeConfig;
