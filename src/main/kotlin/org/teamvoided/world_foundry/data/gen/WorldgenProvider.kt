@@ -12,6 +12,7 @@ class WorldgenProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
 
     override fun configure(reg: HolderLookup.Provider, e: Entries) {
+        e.addAll(reg.getLookupOrThrow(RegistryKeys.NOISE_PARAMETERS))
         e.addAll(reg.getLookupOrThrow(RegistryKeys.DENSITY_FUNCTION))
         e.addAll(reg.getLookupOrThrow(RegistryKeys.GENERATOR_TYPE))
         e.addAll(reg.getLookupOrThrow(RegistryKeys.CHUNK_GENERATOR_SETTINGS))

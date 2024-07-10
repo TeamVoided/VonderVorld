@@ -42,7 +42,7 @@ class WorldPresetTagsProvider(o: FabricDataOutput, r: CompletableFuture<HolderLo
                                         MultiNoiseBiomeSource.create(
                                             mnbpsl.getHolderOrThrow(MultiNoiseBiomeSourceParameterLists.OVERWORLD),
                                         ),
-                                        cgs.getHolderOrThrow(WFChunkGeneratorSettings.ENDWORLD)
+                                        cgs.getHolderOrThrow(WFChunkGeneratorSettings.AMPLIFIED_MIXTURE)
                                     )
                                 ),
                         DimensionOptions.NETHER to DimensionOptions(

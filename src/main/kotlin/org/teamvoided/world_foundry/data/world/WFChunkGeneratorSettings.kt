@@ -6,6 +6,6 @@ import net.minecraft.world.gen.chunk.ChunkGeneratorSettings
 import org.teamvoided.world_foundry.WorldFoundry.id
 
 object WFChunkGeneratorSettings {
-    val ENDWORLD: RegistryKey<ChunkGeneratorSettings> = RegistryKey.of(RegistryKeys.CHUNK_GENERATOR_SETTINGS, id("endworld"))
+    val AMPLIFIED_MIXTURE: RegistryKey<ChunkGeneratorSettings> = RegistryKey.of(RegistryKeys.CHUNK_GENERATOR_SETTINGS, id("amplified_mixture"))
 
 }
