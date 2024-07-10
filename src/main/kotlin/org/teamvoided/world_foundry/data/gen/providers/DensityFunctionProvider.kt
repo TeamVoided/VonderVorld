@@ -54,7 +54,7 @@ object DensityFunctionProvider {
                 DensityFunctions.multiply(
                     DensityFunctions.constant(-1.0),
                     DensityFunctions.add(
-                        DensityFunctions.constant(1.0),
+                        DensityFunctions.constant(-1.0),
                         getFunction(densityFuns, AMPLIFIED_REGION)
                     )
                 )
