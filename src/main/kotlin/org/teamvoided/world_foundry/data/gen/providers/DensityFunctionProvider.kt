@@ -44,7 +44,10 @@ object DensityFunctionProvider {
             DensityFunctions.cache2D(
                 DensityFunctions.multiply(
                     DensityFunctions.constant(3.0),
-                    DensityFunctions.noise(noiseParams.getHolderOrThrow(AMPLIFIED_TRANSITION_NOISE), 0.0, 0.25)
+                    DensityFunctions.noise(
+                        noiseParams.getHolderOrThrow(AMPLIFIED_TRANSITION_NOISE),
+                        0.25, 0.0
+                    )
                 ).clamp(0.0, 1.0)
             )
         )

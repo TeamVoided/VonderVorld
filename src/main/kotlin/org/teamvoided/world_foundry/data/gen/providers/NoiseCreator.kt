@@ -11,31 +11,29 @@ import org.teamvoided.world_foundry.data.world.WFNoise.VEGETATION_NOISE_WF
 
 object NoiseCreator {
     fun bootstrap(c: BootstrapContext<DoublePerlinNoiseSampler.NoiseParameters>) {
-        register(c, AMPLIFIED_TRANSITION_NOISE, -9, 2.0, 0.0, 2.0, 1.0, 1.0)
-        registerBiomeNoises(c, -2, TEMPERATURE_NOISE_WF, VEGETATION_NOISE_WF, CONTINENTS_NOISE_WF, EROSION_NOISE_WF)
+        c.register(AMPLIFIED_TRANSITION_NOISE, -9, 2.0, 0.0, 2.0, 1.0, 1.0)
+        c.registerBiomeNoises(-1, TEMPERATURE_NOISE_WF, VEGETATION_NOISE_WF, CONTINENTS_NOISE_WF, EROSION_NOISE_WF)
     }
 
-    private fun registerBiomeNoises(
-        c: BootstrapContext<DoublePerlinNoiseSampler.NoiseParameters>,
+    private fun BootstrapContext<DoublePerlinNoiseSampler.NoiseParameters>.registerBiomeNoises(
         octaveOffset: Int,
         temperature: RegistryKey<DoublePerlinNoiseSampler.NoiseParameters>,
         humidity: RegistryKey<DoublePerlinNoiseSampler.NoiseParameters>,
         continentalness: RegistryKey<DoublePerlinNoiseSampler.NoiseParameters>,
         erosion: RegistryKey<DoublePerlinNoiseSampler.NoiseParameters>
     ) {
-        register(c, temperature, -10 + octaveOffset, 1.5, 0.0, 1.0, 0.0, 0.0, 0.0)
-        register(c, humidity, -8 + octaveOffset, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0)
-        register(c, continentalness, -9 + octaveOffset, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0)
-        register(c, erosion, -9 + octaveOffset, 1.0, 1.0, 0.0, 1.0, 1.0)
+        this.register(temperature, -10 + octaveOffset, 1.5, 0.0, 1.0, 0.0, 0.0, 0.0)
+        this.register(humidity, -8 + octaveOffset, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0)
+        this.register(continentalness, -9 + octaveOffset, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0)
+        this.register(erosion, -9 + octaveOffset, 1.0, 1.0, 0.0, 1.0, 1.0)
     }
 
-    private fun register(
-        context: BootstrapContext<DoublePerlinNoiseSampler.NoiseParameters>,
+    private fun BootstrapContext<DoublePerlinNoiseSampler.NoiseParameters>.register(
         key: RegistryKey<DoublePerlinNoiseSampler.NoiseParameters>,
         firstOctave: Int,
         firstAmplitude: Double,
         vararg amplitudes: Double
     ) {
-        context.register(key, DoublePerlinNoiseSampler.NoiseParameters(firstOctave, firstAmplitude, *amplitudes))
+        this.register(key, DoublePerlinNoiseSampler.NoiseParameters(firstOctave, firstAmplitude, *amplitudes))
     }
 }
