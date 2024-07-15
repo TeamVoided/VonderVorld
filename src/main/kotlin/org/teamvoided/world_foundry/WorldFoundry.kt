@@ -19,6 +19,6 @@ object WorldFoundry {
         log.info("Hello from Client")
     }
 
-    fun id(path: String) = Identifier(MODID, path)
-    fun mc(path: String) = Identifier("test",path)
+    fun id(path: String) = Identifier.of(MODID, path)
+    fun mc(path: String) = Identifier.ofDefault(path)
 }
