@@ -8,6 +8,7 @@ import org.teamvoided.world_foundry.WorldFoundry.log
 import org.teamvoided.world_foundry.data.gen.providers.NoiseCreator
 import org.teamvoided.world_foundry.data.gen.providers.ChunkGeneratorSettingsProvider
 import org.teamvoided.world_foundry.data.gen.providers.DensityFunctionProvider
+import org.teamvoided.world_foundry.data.gen.providers.EnLangProvider
 import org.teamvoided.world_foundry.data.gen.providers.tags.WorldPresetTagsProvider
 
 class WorldFoundryData : DataGeneratorEntrypoint {
@@ -19,6 +20,7 @@ class WorldFoundryData : DataGeneratorEntrypoint {
 
         pack.addProvider(::WorldgenProvider)
         pack.addProvider(::WorldPresetTagsProvider)
+        pack.addProvider(::EnLangProvider)
     }
 
     override fun buildRegistry(gen: RegistrySetBuilder) {

@@ -22,7 +22,7 @@ class WorldPresetTagsProvider(o: FabricDataOutput, r: CompletableFuture<HolderLo
     FabricTagProvider<GeneratorType>(o, RegistryKeys.GENERATOR_TYPE, r) {
     override fun configure(arg: HolderLookup.Provider) {
         getOrCreateTagBuilder(WorldPresetTags.NORMAL)
-            .add(WFGeneratorTypes.ENDIFIED)
+            .add(WFGeneratorTypes.MIXED_AMPLIFIED)
     }
 
     companion object {
@@ -32,7 +32,7 @@ class WorldPresetTagsProvider(o: FabricDataOutput, r: CompletableFuture<HolderLo
             val biome = c.getRegistryLookup(RegistryKeys.BIOME)
             val mnbpsl = c.getRegistryLookup(RegistryKeys.MULTI_NOISE_BIOME_SOURCE_PARAMETER_LIST)
             c.register(
-                WFGeneratorTypes.ENDIFIED,
+                WFGeneratorTypes.MIXED_AMPLIFIED,
                 GeneratorType(
                     mapOf(
                         DimensionOptions.OVERWORLD to
