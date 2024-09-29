@@ -7,18 +7,12 @@ import org.slf4j.LoggerFactory
 @Suppress("unused")
 object WorldFoundry {
     const val MODID = "world_foundry"
-
-    @JvmField
     val log: Logger = LoggerFactory.getLogger(WorldFoundry::class.simpleName)
 
     fun commonInit() {
-        log.info("Hello from Common")
+        log.info("Founding Worlds!")
     }
 
-    fun clientInit() {
-        log.info("Hello from Client")
-    }
-
-    fun id(path: String) = Identifier.of(MODID, path)
-    fun mc(path: String) = Identifier.ofDefault(path)
+    fun id(path: String): Identifier = Identifier.of(MODID, path)
+    fun mc(path: String): Identifier = Identifier.ofDefault(path)
 }

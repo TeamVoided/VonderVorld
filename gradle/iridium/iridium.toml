@@ -2,7 +2,7 @@ projectTitle = "World Foundry"
 modId = "world_foundry"
 githubRepo = "TeamVoided/WorldFoundry"
 discordServerInviteId = "KZ5Q364hEg"
-authors = [ "Deathlord", "TheEnderCore" ]
+authors = [ "DuskAutumnStorm", "TheEnderCore" ]
 majorMinecraftVersion = "1.21"
 minecraftVersion = "1.21"
 fabricLoaderVersion = "0.15.11"
@@ -10,7 +10,7 @@ fabricApiVersion = "0.100.7+1.21"
 fabricLangKotlinVersion = "1.11.0+kotlin.2.0.0"
 license = "MIT"
 modules = [ ]
-modDescription = "Template Mod Description"
+modDescription = "Adds a new world type to the create world screen."
 # Modmenu badges, values can be: [ library, deprecated ]
 badges = [ ]
 disableKotlin = false

@@ -58,7 +58,5 @@ public abstract class VanillaTerrainParametersCreatorMixin {
                         .method_41295(1.0F, inlandSpline)
                         .build()
         );
-
     }
-
 }

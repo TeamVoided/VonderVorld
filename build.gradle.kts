@@ -1,5 +1,6 @@
 @file:Suppress("PropertyName", "VariableNaming")
 
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -14,7 +15,6 @@ plugins {
 group = property("maven_group")!!
 version = property("mod_version")!!
 
-var modid: String = ""
 val modrinth_id: String? by project
 val curse_id: String? by project
 
@@ -25,13 +25,12 @@ repositories {
 }
 
 modSettings {
-    modid = modId()
-
     entrypoint("main", "org.teamvoided.world_foundry.WorldFoundry::commonInit")
     entrypoint("client", "org.teamvoided.world_foundry.WorldFoundry::clientInit")
     entrypoint("fabric-datagen", "org.teamvoided.world_foundry.data.gen.WorldFoundryData")
-    mixinFile("$modid.mixins.json")
-    accessWidener("$modid.accesswidener")
+
+    mixinFile("${modId()}.mixins.json")
+    accessWidener("${modId()}.accesswidener")
 }
 
 dependencies {
@@ -48,7 +47,7 @@ loom {
             ideConfigGenerated(true)
             vmArg("-Dfabric-api.datagen")
             vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
-            vmArg("-Dfabric-api.datagen.modid=${modid}")
+            vmArg("-Dfabric-api.datagen.modid=${modSettings.modId()}")
             runDir("build/datagen")
         }
 
@@ -70,13 +69,22 @@ tasks {
         options.release.set(targetJavaVersion)
     }
 
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = targetJavaVersion.toString()
+    withType<KotlinCompile>().all {
+        compilerOptions.jvmTarget = JvmTarget.JVM_21
     }
 
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(JavaVersion.toVersion(targetJavaVersion).toString()))
         withSourcesJar()
+    }
+
+    jar {
+        val valTaskNames = gradle.startParameter.taskNames
+        if (!valTaskNames.contains("runDataGen")) {
+            exclude("org/teamvoided/${modSettings.modId()}/data/gen/**")
+        } else {
+            println("Running datagen for task ${valTaskNames.joinToString(" ")}")
+        }
     }
 }
 
@@ -91,6 +99,7 @@ uploadConfig {
     modrinthId = modrinth_id
     curseId = curse_id
 
+    changeLog = "- initial release"
     // FabricApi
     modrinthDependency("P7dR8mSH", uploadConfig.REQUIRED)
     curseDependency("fabric-api", uploadConfig.REQUIRED)

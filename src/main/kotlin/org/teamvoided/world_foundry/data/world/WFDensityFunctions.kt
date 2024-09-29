@@ -6,7 +6,6 @@ import net.minecraft.world.gen.DensityFunction
 import org.teamvoided.world_foundry.WorldFoundry.id
 
 object WFDensityFunctions {
-    val EXAMPLE = create("example")
     val AMPLIFIED_REGION = create("amplified_region")
     val NORMAL_REGION = create("normal_region")
 
@@ -25,8 +24,6 @@ object WFDensityFunctions {
     val I_D_W_J_NORMAL = create("initial_density_without_jaggedness_normal")
     val I_D_W_J_AMPLIFIED = create("initial_density_without_jaggedness_amplified")
     val FINAL_DENSITY_MIX = create("final_density_mix")
-
-
 
     fun create(id: String): RegistryKey<DensityFunction> = RegistryKey.of(RegistryKeys.DENSITY_FUNCTION, id(id))
 }

@@ -6,7 +6,6 @@ import net.minecraft.util.math.noise.DoublePerlinNoiseSampler
 import org.teamvoided.world_foundry.WorldFoundry.id
 
 object WFNoise {
-
     val AMPLIFIED_TRANSITION_NOISE = create("amplified_transition")
     val TEMPERATURE_NOISE_WF = create("temperature_big")
     val VEGETATION_NOISE_WF = create("vegetation_big")

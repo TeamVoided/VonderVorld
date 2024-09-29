@@ -10,7 +10,6 @@ class WorldgenProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
     FabricDynamicRegistryProvider(o, r) {
     override fun getName(): String = "world_eater"
 
-
     override fun configure(reg: HolderLookup.Provider, e: Entries) {
         e.addAll(reg.getLookupOrThrow(RegistryKeys.NOISE_PARAMETERS))
         e.addAll(reg.getLookupOrThrow(RegistryKeys.DENSITY_FUNCTION))
