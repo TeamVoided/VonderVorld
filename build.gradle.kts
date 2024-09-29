@@ -26,7 +26,6 @@ repositories {
 
 modSettings {
     entrypoint("main", "org.teamvoided.world_foundry.WorldFoundry::commonInit")
-    entrypoint("client", "org.teamvoided.world_foundry.WorldFoundry::clientInit")
     entrypoint("fabric-datagen", "org.teamvoided.world_foundry.data.gen.WorldFoundryData")
 
     mixinFile("${modId()}.mixins.json")
