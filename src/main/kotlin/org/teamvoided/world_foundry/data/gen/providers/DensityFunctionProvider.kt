@@ -119,11 +119,11 @@ object DensityFunctionProvider {
                 NoiseRouterData.postProcess(
                     transitionAmplified(
                         densityFuns,
-                        NoiseRouterData.method_42366(
+                        NoiseRouterData.surfaceSlide(
                             false,
                             cavesMainFunction
                         ),
-                        NoiseRouterData.method_42366(
+                        NoiseRouterData.surfaceSlide(
                             true,
                             cavesMainFunction
                         )
@@ -197,7 +197,7 @@ object DensityFunctionProvider {
             DensityFunctions.Spline.FunctionWrapper(densityFuns.getHolderOrThrow(NoiseRouterData.RIDGES_OVERWORLD))
         val ridgesFoldedNoise =
             DensityFunctions.Spline.FunctionWrapper(densityFuns.getHolderOrThrow(NoiseRouterData.RIDGES_FOLDED_OVERWORLD))
-        val offsetSpline = NoiseRouterData.method_41551(
+        val offsetSpline = NoiseRouterData.registerAndWrap(
             c,
             offset,
             NoiseRouterData.splineWithBlending(
@@ -225,7 +225,7 @@ object DensityFunctionProvider {
                 ), DensityFunctions.getBlendOffset()
             )
         )
-        val factorSpline = NoiseRouterData.method_41551(
+        val factorSpline = NoiseRouterData.registerAndWrap(
             c,
             factor,
             NoiseRouterData.splineWithBlending(
@@ -252,12 +252,12 @@ object DensityFunctionProvider {
                 ), NoiseRouterData.BLENDING_FACTOR
             )
         )
-        val depthFunction = NoiseRouterData.method_41551(
+        val depthFunction = NoiseRouterData.registerAndWrap(
             c,
             depth,
             DensityFunctions.add(DensityFunctions.clampedGradientY(-64, 320, 1.5, -1.5), offsetSpline)
         )
-        val jaggednessSpline = NoiseRouterData.method_41551(
+        val jaggednessSpline = NoiseRouterData.registerAndWrap(
             c,
             jaggedness,
             NoiseRouterData.splineWithBlending(
@@ -391,9 +391,9 @@ object DensityFunctionProvider {
     ): DensityFunction {
         val densityFunction =
             DensityFunctions.clampedGradientY(yMin + yHeight - upperYRoof, yMin + yHeight - lowerYRoof, 1.0, 0.0)
-        val densityFunction2 = DensityFunctions.method_42359(densityFunction, clampOffset, function1)
+        val densityFunction2 = DensityFunctions.lerp(densityFunction, clampOffset, function1)
         val densityFunction3 = DensityFunctions.clampedGradientY(yMin + lowerYFloor, yMin + upperYfloor, 0.0, 1.0)
-        return DensityFunctions.method_42359(densityFunction3, addToAll, densityFunction2)
+        return DensityFunctions.lerp(densityFunction3, addToAll, densityFunction2)
     }
 
 

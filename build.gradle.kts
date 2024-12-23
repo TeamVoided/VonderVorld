@@ -29,7 +29,7 @@ modSettings {
     entrypoint("fabric-datagen", "org.teamvoided.world_foundry.data.gen.WorldFoundryData")
 
     mixinFile("${modId()}.mixins.json")
-    accessWidener("${modId()}.accesswidener")
+//    accessWidener("${modId()}.accesswidener")
 }
 
 dependencies {
@@ -40,6 +40,7 @@ dependencies {
 }
 
 loom {
+    accessWidenerPath = file("src/main/resources/${modSettings.modId()}.accesswidener")
     runs {
         create("DataGen") {
             client()
